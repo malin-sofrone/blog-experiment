@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <h1 id="title">This is a title</h1>
+  <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+    $.ajax( {
+        type: 'GET',
+        url: 'https://cdn.contentful.com//spaces/lskkit434qgu/environments/master/entries/5yAx85NCKsegG8aKoWSU6I?access_token=698ecc849316e21eb6bb03e4fd290619be2cb0fdac871c1964847588db0fe28a',
+        success: function (response) {
+            console.log('success', response);
+          // }).done(function(data) {
+$('#title').append(JSON.stringify(response.fields.title))
+// });
+            // $( ".sys.id" ).append( "<p>Name: " + response.title + " </p>" );
+
+        }
+        }
+
+    )
+})
+
+</script>
+
+  <!-- <script>
+    var client = contentful.createClient({
+      // This is the space ID. A space is like a project folder in Contentful terms
+      space: 'lskkit434qgu',
+      // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+      accessToken: '698ecc849316e21eb6bb03e4fd290619be2cb0fdac871c1964847588db0fe28a'
+    })
+
+    client.getEntry('5yAx85NCKsegG8aKoWSU6I')
+      .then(function(entry) {
+        console.log('Entry:', entry)
+      })
+
+      // var object1 = { "language" : "Java", "author"  : "herbert schildt" };
+      //         document.write("<h1>JSON with JavaScript example</h1>");
+      //         document.write("<br>");
+      //         document.write("<h3>Language = " + object1.author+"</h3>");
+
+      var output = document.getElementById ('title');
+      console.log(output.sys.type);
+      output.innerHTML = output.sys.type;
+      // document.getElementById('title').innerHTML = output.sys.locale;
+
+  </script> -->
+
+</body>
+
+</html>
